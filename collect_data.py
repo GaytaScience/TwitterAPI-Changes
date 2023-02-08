@@ -22,7 +22,7 @@ enddate = '2023-02-09' # day after to get full day
 outpath = ''
 excludeattrs = ['json', 'source', 'description', 'username', 'content']
 # TODO - parse link attributes correctly and exclude these depreciated attributes
-#'descriptionUrls', 'linkUrl', 'linkTcourl', 'outlinks', 'outlinksss', 'tcooutlinks', 'tcooutlinksss'
+# 'descriptionUrls', 'linkUrl', 'linkTcourl', 'outlinks', 'outlinksss', 'tcooutlinks', 'tcooutlinksss'
 
 # Creating list to append tweets to
 tweets_list = []
@@ -38,9 +38,6 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper(f'{hashtag} since:{start
     	if ("__" not in a) & (a not in excludeattrs):
     		# Add User attibutes seperately
     		if a == 'user':
-    			# tdict['user_username'] = tweet.user.username
-    			# tdict['user_id'] = tweet.user.user_id
-    			# tdict['user_displayname'] = tweet.user.user_displayname
     			for ua in dir(tweet.user):
     				if ("__" not in ua) & (ua not in excludeattrs):
     					key = 'user_' + ua
